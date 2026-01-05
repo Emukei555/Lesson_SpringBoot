@@ -6,6 +6,7 @@ import com.sqlcanvas.lesson_spring_boot3.dto.FortuneResponse;
 import com.sqlcanvas.lesson_spring_boot3.service.FortuneService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class FortuneController {
         fortuneService.delete(id);
     }
     @PutMapping("/fortune/history/{id}")
-    public void update(@PathVariable Long id, @RequestBody FortuneRequest request) {
+    public void update(@PathVariable Long id, @Validated @RequestBody FortuneRequest request) {
         // @RequestBody は「送られてきたJSONをこのクラス(request)に入れてね」という指示です
         fortuneService.update(id, request);
     }

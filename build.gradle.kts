@@ -28,8 +28,12 @@ dependencies {
     // Web (Tomcat + MVC) - ここを修正しました
     implementation("org.springframework.boot:spring-boot-starter-web")
 
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+
     // DB & JPA
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
     runtimeOnly("com.mysql:mysql-connector-j")
 
     // Validation
