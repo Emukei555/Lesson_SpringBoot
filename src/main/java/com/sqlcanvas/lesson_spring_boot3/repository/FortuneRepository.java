@@ -8,6 +8,5 @@ import java.util.List;
 
 @Repository
 public interface FortuneRepository extends JpaRepository<FortuneResult, Long> {
-    // これだけで save() が使えるようになります！
     List<FortuneResult> findByResult(String result);
 }

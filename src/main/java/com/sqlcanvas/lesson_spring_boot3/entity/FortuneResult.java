@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "fortune_results") // DBにはこの名前でテーブルができます
+@Table(name = "fortune_results")
 public class FortuneResult {
 
     @Id

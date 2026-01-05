@@ -1,13 +1,13 @@
 package com.sqlcanvas.lesson_spring_boot3.entity;
 
 import jakarta.persistence.*;
-import lombok.Data; // Lombokをインポート
-import lombok.NoArgsConstructor; // 引数なしコンストラクタ用
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "users")
-@Data // ① これだけで Getter, Setter, toString, hashCode 等を全部自動生成！
-@NoArgsConstructor // ② JPAに必要な「空のコンストラクタ」を自動生成！
+@Data
+@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
