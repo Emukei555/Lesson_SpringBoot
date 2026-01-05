@@ -67,23 +67,19 @@ public class FortuneService {
     }
 
     public List<FortuneHistoryResponse> getHistory() {
-        // 1. DBから生のデータ(Entity)を全部持ってくる
         List<FortuneResult> entities = fortuneRepository.findAll();
-
-        // 2. 生のデータを、公開用の箱(DTO)に詰め替える
-        return entities.stream()
-                .map(entity -> FortuneHistoryResponse.builder()
-                        .id(entity.getId())
-                        .result(entity.getResult())
-                        .comment(entity.getComment())
-                        .createdAt(entity.getCreatedAt())
-                        .build())
-                .collect(Collectors.toList()); // ← 最後にリストの形に戻す
+        // 共通メソッドを呼ぶ
+        return convertToDtoList(entities);
     }
 
     public List<FortuneHistoryResponse> getHistoryByResult(String searchResult) {
         List<FortuneResult> entities = fortuneRepository.findByResult(searchResult);
+        // 共通メソッドを呼ぶ
+        return convertToDtoList(entities);
+    }
 
+    // 【共通化】Entityのリストを受け取って、DTOのリストを返すメソッド
+    private List<FortuneHistoryResponse> convertToDtoList(List<FortuneResult> entities) {
         return entities.stream()
                 .map(entity -> FortuneHistoryResponse.builder()
                         .id(entity.getId())
@@ -106,7 +102,7 @@ public class FortuneService {
         FortuneResult entity = fortuneRepository.findById(id).orElse(null);
 
         if(entity != null) {
-            entity.setComment(request.getComment());
+            entity.setResult(request.getResult());
             entity.setComment(request.getComment()); // 新しいコメントをセット
 
             // 3. 上書き保存！
