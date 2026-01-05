@@ -3,7 +3,6 @@ package com.sqlcanvas.lesson_spring_boot3.controller;
 import com.sqlcanvas.lesson_spring_boot3.dto.FortuneHistoryResponse;
 import com.sqlcanvas.lesson_spring_boot3.dto.FortuneRequest;
 import com.sqlcanvas.lesson_spring_boot3.dto.FortuneResponse;
-import com.sqlcanvas.lesson_spring_boot3.entity.FortuneResult;
 import com.sqlcanvas.lesson_spring_boot3.service.FortuneService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
