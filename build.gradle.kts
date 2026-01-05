@@ -25,23 +25,22 @@ repositories {
 }
 
 dependencies {
-    // Web (Tomcat + MVC) - ここを修正しました
+    // Web (Tomcat + MVC)
     implementation("org.springframework.boot:spring-boot-starter-web")
-
-    implementation("org.springframework.boot:spring-boot-starter-actuator")
 
     // DB & JPA
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("org.springframework.boot:spring-boot-starter-actuator")
     runtimeOnly("com.mysql:mysql-connector-j")
 
-    // Validation
-    implementation("org.springframework.boot:spring-boot-starter-validation")
+    // Validation (重複を削除しました)
     implementation("org.springframework.boot:spring-boot-starter-validation")
 
+    // Actuator (3回書いてあったので1つにしました)
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+
     // Documentation (Swagger/OpenAPI)
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
+    // ★重要: 2.2.0 を消して、3.0.0 だけにしました
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.0")
 
     // Tools
     compileOnly("org.projectlombok:lombok")
@@ -49,7 +48,7 @@ dependencies {
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     annotationProcessor("org.projectlombok:lombok")
 
-    // Test (ここを1つにまとめました)
+    // Test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
