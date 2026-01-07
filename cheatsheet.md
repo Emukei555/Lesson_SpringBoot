@@ -1,6 +1,6 @@
 # ☕️ Modern Java (Spring Boot 4 / Java 21) Cheat Sheet
 
-Java 21とSpring Boot 4によるREST API開発のための、実務的な書き方まとめです。
+Java 21とSpring Boot 4によるREST API開発のための、書き方まとめです。
 
 ---
 
